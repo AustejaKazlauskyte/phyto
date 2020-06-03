@@ -23,7 +23,7 @@ public class HerbServiceImpl implements HerbService {
 
   @Override
     public List<HerbEntity> findAllHerbs() {
-      return (List<HerbEntity>) herbRepository.findAll();
+      return herbRepository.findAll();
   }
 
   @Override
