@@ -19,7 +19,7 @@ public class HerbController {
         this.herbService = herbService;
     }
 
-    @GetMapping("/all")
+    @GetMapping
     List<HerbEntity> findAllHerbs() {
         return herbService.findAllHerbs();
     }
@@ -31,7 +31,7 @@ public class HerbController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public HerbEntity saveHerb (@RequestBody HerbEntity herbEntity) {
+    public HerbEntity saveHerb(@RequestBody HerbEntity herbEntity) {
         return herbService.saveHerb(herbEntity);
     }
 }
