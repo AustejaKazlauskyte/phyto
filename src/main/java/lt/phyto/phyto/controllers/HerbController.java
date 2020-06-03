@@ -19,7 +19,7 @@ public class HerbController {
         this.herbService = herbService;
     }
 
-    @GetMapping
+    @GetMapping("/all")
     List<HerbEntity> findAllHerbs() {
         return herbService.findAllHerbs();
     }
