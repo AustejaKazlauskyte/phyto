@@ -17,7 +17,8 @@ public class HerbServiceImpl implements HerbService {
 
   @Override
   public HerbEntity findHerbById(Long id) {
-    return herbRepository.findById(id).get();
+    return null;
+    /*return herbRepository.findById(id).get();*/
   }
 
   @Override
