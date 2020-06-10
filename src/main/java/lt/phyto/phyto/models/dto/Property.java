@@ -1,12 +1,12 @@
 package lt.phyto.phyto.models.dto;
 
-import java.util.Set;
+import java.util.HashSet;
 
 public class Property {
     private Long id;
     private String title;
-    private Set<Herb> herbSet;
-    private Set<Property> propertySet;
+    private HashSet<Herb> herbs;
+    private HashSet<Property> properties;
     private boolean children;
     private boolean pregnant;
     private boolean highBloodPressure;
@@ -14,12 +14,12 @@ public class Property {
     public Property() {
     }
 
-    public Property(Long id, String title, Set<Herb> herbSet, Set<Property> propertySet, boolean children,
-                    boolean pregnant, boolean highBloodPressure) {
+    public Property(Long id, String title, HashSet<Herb> herbs, HashSet<Property> properties,
+                    boolean children, boolean pregnant, boolean highBloodPressure) {
         this.id = id;
         this.title = title;
-        this.herbSet = herbSet;
-        this.propertySet = propertySet;
+        this.herbs = herbs;
+        this.properties = properties;
         this.children = children;
         this.pregnant = pregnant;
         this.highBloodPressure = highBloodPressure;
@@ -41,20 +41,20 @@ public class Property {
         this.title = title;
     }
 
-    public Set<Herb> getHerbSet() {
-        return herbSet;
+    public HashSet<Herb> getHerbs() {
+        return herbs;
     }
 
-    public void setHerbSet(Set<Herb> herbSet) {
-        this.herbSet = herbSet;
+    public void setHerbs(HashSet<Herb> herbs) {
+        this.herbs = herbs;
     }
 
-    public Set<Property> getPropertySet() {
-        return propertySet;
+    public HashSet<Property> getProperties() {
+        return properties;
     }
 
-    public void setPropertySet(Set<Property> propertySet) {
-        this.propertySet = propertySet;
+    public void setProperties(HashSet<Property> properties) {
+        this.properties = properties;
     }
 
     public boolean isChildren() {
@@ -79,5 +79,33 @@ public class Property {
 
     public void setHighBloodPressure(boolean highBloodPressure) {
         this.highBloodPressure = highBloodPressure;
+    }
+
+    @Override
+    public String toString() {
+        return "Property{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", herbs=" + herbs +
+                ", properties=" + properties +
+                ", children=" + children +
+                ", pregnant=" + pregnant +
+                ", highBloodPressure=" + highBloodPressure +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Property property = (Property) o;
+
+        return id.equals(property.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return id.hashCode();
     }
 }

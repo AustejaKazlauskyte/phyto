@@ -13,6 +13,8 @@ public class HerbEntity {
 
   private String name;
 
+
+
   public HerbEntity() {}
 
   public Long getId() {
