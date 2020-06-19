@@ -1,25 +1,31 @@
 package lt.phyto.phyto.models.dto;
 
-import java.util.HashSet;
+import lt.phyto.phyto.converters.YesNoBooleanConverter;
+
+import javax.persistence.Convert;
+import java.util.Set;
 
 public class Property {
     private Long id;
     private String title;
-    private HashSet<Herb> herbs;
-    private HashSet<Property> properties;
+    private Set<Herb> herbs;
+    private Set<Condition> conditions;
+
+    @Convert(converter = YesNoBooleanConverter.class)
     private boolean children;
+
+
     private boolean pregnant;
     private boolean highBloodPressure;
 
     public Property() {
     }
 
-    public Property(Long id, String title, HashSet<Herb> herbs, HashSet<Property> properties,
-                    boolean children, boolean pregnant, boolean highBloodPressure) {
+    public Property(Long id, String title, Set<Herb> herbs, Set<Condition> conditions, boolean children, boolean pregnant, boolean highBloodPressure) {
         this.id = id;
         this.title = title;
         this.herbs = herbs;
-        this.properties = properties;
+        this.conditions = conditions;
         this.children = children;
         this.pregnant = pregnant;
         this.highBloodPressure = highBloodPressure;
@@ -41,20 +47,20 @@ public class Property {
         this.title = title;
     }
 
-    public HashSet<Herb> getHerbs() {
+    public Set<Herb> getHerbs() {
         return herbs;
     }
 
-    public void setHerbs(HashSet<Herb> herbs) {
+    public void setHerbs(Set<Herb> herbs) {
         this.herbs = herbs;
     }
 
-    public HashSet<Property> getProperties() {
-        return properties;
+    public Set<Condition> getConditions() {
+        return conditions;
     }
 
-    public void setProperties(HashSet<Property> properties) {
-        this.properties = properties;
+    public void setConditions(Set<Condition> conditions) {
+        this.conditions = conditions;
     }
 
     public boolean isChildren() {
@@ -87,7 +93,7 @@ public class Property {
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", herbs=" + herbs +
-                ", properties=" + properties +
+                ", conditions=" + conditions +
                 ", children=" + children +
                 ", pregnant=" + pregnant +
                 ", highBloodPressure=" + highBloodPressure +

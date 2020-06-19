@@ -1,18 +1,18 @@
 package lt.phyto.phyto.models.dto;
 
-import java.util.HashSet;
+import java.util.Set;
 
 public class Herb {
 
   private Long id;
   private String name;
-  private HashSet<Property> properties;
-  private HashSet<Condition> conditions;
+  private Set<Property> properties;
+  private Set<Condition> conditions;
 
     public Herb() {
     }
 
-    public Herb(Long id, String name, HashSet<Property> properties, HashSet<Condition> conditions) {
+    public Herb(Long id, String name, Set<Property> properties, Set<Condition> conditions) {
         this.id = id;
         this.name = name;
         this.properties = properties;
@@ -35,19 +35,19 @@ public class Herb {
         this.name = name;
     }
 
-    public HashSet<Property> getProperties() {
+    public Set<Property> getProperties() {
         return properties;
     }
 
-    public void setProperties(HashSet<Property> properties) {
+    public void setProperties(Set<Property> properties) {
         this.properties = properties;
     }
 
-    public HashSet<Condition> getConditions() {
+    public Set<Condition> getConditions() {
         return conditions;
     }
 
-    public void setConditions(HashSet<Condition> conditions) {
+    public void setConditions(Set<Condition> conditions) {
         this.conditions = conditions;
     }
 
