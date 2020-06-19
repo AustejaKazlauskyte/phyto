@@ -7,7 +7,6 @@ import java.util.List;
 public interface HerbService {
     HerbEntity findHerbById(Long id);
     List<HerbEntity> findAllHerbs();
-
     HerbEntity saveHerb(HerbEntity herbEntity);
 
 }
