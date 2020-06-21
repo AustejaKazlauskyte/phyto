@@ -6,17 +6,10 @@ public class Herb {
 
     private Long id;
     private String name;
-    private Set<Characteristic> properties;
+    private Set<Characteristic> characteristics;
     private Set<MedicalCondition> medicalConditions;
 
     public Herb() {
-    }
-
-    public Herb(Long id, String name, Set<Characteristic> properties, Set<MedicalCondition> medicalConditions) {
-        this.id = id;
-        this.name = name;
-        this.properties = properties;
-        this.medicalConditions = medicalConditions;
     }
 
     public Long getId() {
@@ -35,12 +28,12 @@ public class Herb {
         this.name = name;
     }
 
-    public Set<Characteristic> getProperties() {
-        return properties;
+    public Set<Characteristic> getCharacteristics() {
+        return characteristics;
     }
 
-    public void setProperties(Set<Characteristic> properties) {
-        this.properties = properties;
+    public void setCharacteristics(Set<Characteristic> characteristics) {
+        this.characteristics = characteristics;
     }
 
     public Set<MedicalCondition> getMedicalConditions() {
@@ -56,8 +49,8 @@ public class Herb {
         return "Herb{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", properties=" + properties +
-                ", conditions=" + medicalConditions +
+                ", characteristics=" + characteristics +
+                ", medicalConditions=" + medicalConditions +
                 '}';
     }
 
