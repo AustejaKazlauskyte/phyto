@@ -13,7 +13,7 @@ import javax.persistence.Table;
 import java.util.Set;
 
 @Entity
-@Table(name = "condition")
+@Table(name = "medical_condition")
 public class MedicalConditionEntity {
 
   @Id
@@ -25,16 +25,16 @@ public class MedicalConditionEntity {
 
   @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
   @JoinTable(
-      name = "condition_herb",
-      joinColumns = @JoinColumn(name = "condition_id"),
-      inverseJoinColumns = @JoinColumn(name = "herb_id"))
+      name = "herb_medical_condition",
+      joinColumns = @JoinColumn(name = "herb_id"),
+      inverseJoinColumns = @JoinColumn(name = "medical_condition_id"))
   private Set<HerbEntity> herbs;
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
-            name = "condition_property",
-            joinColumns = @JoinColumn(name = "condition_id"),
-            inverseJoinColumns = @JoinColumn(name = "property_id"))
+            name = "characteristic_medical_condition",
+            joinColumns = @JoinColumn(name = "characteristic_id"),
+            inverseJoinColumns = @JoinColumn(name = "medical_condition_id"))
   private Set<CharacteristicEntity> properties;
 
 }
