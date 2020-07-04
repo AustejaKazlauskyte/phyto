@@ -5,7 +5,6 @@ import java.util.Set;
 public class Characteristic {
   private Long id;
   private String title;
-  private Set<Herb> herbs;
   private Set<MedicalCondition> medicalConditions;
   private boolean isChild;
   private boolean isPregnant;
@@ -14,10 +13,9 @@ public class Characteristic {
   public Characteristic() {
   }
 
-  public Characteristic(Long id, String title, Set<Herb> herbs, Set<MedicalCondition> medicalConditions, boolean isChild, boolean isPregnant, boolean hasHighBloodPressure) {
+  public Characteristic(Long id, String title, Set<MedicalCondition> medicalConditions, boolean isChild, boolean isPregnant, boolean hasHighBloodPressure) {
     this.id = id;
     this.title = title;
-    this.herbs = herbs;
     this.medicalConditions = medicalConditions;
     this.isChild = isChild;
     this.isPregnant = isPregnant;
@@ -38,14 +36,6 @@ public class Characteristic {
 
   public void setTitle(String title) {
     this.title = title;
-  }
-
-  public Set<Herb> getHerbs() {
-    return herbs;
-  }
-
-  public void setHerbs(Set<Herb> herbs) {
-    this.herbs = herbs;
   }
 
   public Set<MedicalCondition> getMedicalConditions() {
@@ -81,30 +71,29 @@ public class Characteristic {
   }
 
   @Override
-  public String toString() {
-    return "Property{" +
-            "id=" + id +
-            ", title='" + title + '\'' +
-            ", herbs=" + herbs +
-            ", conditions=" + medicalConditions +
-            ", isChild=" + isChild +
-            ", isPregnant=" + isPregnant +
-            ", hasHighBloodPressure=" + hasHighBloodPressure +
-            '}';
-  }
-
-  @Override
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
 
-    Characteristic characteristic = (Characteristic) o;
+    Characteristic that = (Characteristic) o;
 
-    return id.equals(characteristic.id);
+    return id.equals(that.id);
   }
 
   @Override
   public int hashCode() {
     return id.hashCode();
+  }
+
+  @Override
+  public String toString() {
+    return "Characteristic{" +
+            "id=" + id +
+            ", title='" + title + '\'' +
+            ", medicalConditions=" + medicalConditions +
+            ", isChild=" + isChild +
+            ", isPregnant=" + isPregnant +
+            ", hasHighBloodPressure=" + hasHighBloodPressure +
+            '}';
   }
 }

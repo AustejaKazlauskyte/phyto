@@ -1,14 +1,14 @@
 package lt.phyto.phyto.services;
-
 import lt.phyto.phyto.converters.HerbConverter;
 import lt.phyto.phyto.models.dto.Herb;
 import lt.phyto.phyto.models.entities.HerbEntity;
 import lt.phyto.phyto.repositories.HerbRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Set;
+
 @Service
 public class HerbService {
-
 
   private final HerbConverter herbConverter;
   private final HerbRepository herbRepository;
@@ -21,24 +21,10 @@ public class HerbService {
   public Herb getHerb(Long id) {
     HerbEntity herbEntity = herbRepository.findOneById(id);
     return herbConverter.convert(herbEntity);
-
   }
 
-
-  /*
-  *     public University getUniversity(Integer id) {
-        UniversityEntity universityEntity = universityRepository.findOneById(id);
-
-        return universityConverter.convert(universityEntity);
-    }
-  *
-  * */
-
-/*  public List<HerbEntity> findAllHerbs() {
-    return herbRepository.findAll();
+  public Set<Herb> getAllHerbs() {
+    Set<HerbEntity> herbEntities = herbRepository.findAll();
+    return herbConverter.convert(herbEntities);
   }
-
-  public HerbEntity saveHerb(HerbEntity herbEntity) {
-    return herbRepository.save(herbEntity);
-  }*/
 }

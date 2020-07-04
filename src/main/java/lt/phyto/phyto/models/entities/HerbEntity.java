@@ -1,8 +1,4 @@
 package lt.phyto.phyto.models.entities;
-
-import lt.phyto.phyto.models.dto.Characteristic;
-import lt.phyto.phyto.models.dto.MedicalCondition;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -40,7 +36,8 @@ public class HerbEntity {
       inverseJoinColumns = @JoinColumn(name = "medical_condition_id"))
   private Set<MedicalConditionEntity> medicalConditions = new HashSet<>();
 
-  public HerbEntity() {}
+  public HerbEntity() {
+  }
 
   public Long getId() {
     return id;
@@ -58,19 +55,19 @@ public class HerbEntity {
     this.name = name;
   }
 
-  public Set<Characteristic> getCharacteristics() {
+  public Set<CharacteristicEntity> getCharacteristics() {
     return characteristics;
   }
 
-  public void setCharacteristics(Set<Characteristic> characteristics) {
+  public void setCharacteristics(Set<CharacteristicEntity> characteristics) {
     this.characteristics = characteristics;
   }
 
-  public Set<MedicalCondition> getMedicalConditions() {
+  public Set<MedicalConditionEntity> getMedicalConditions() {
     return medicalConditions;
   }
 
-  public void setMedicalConditions(Set<MedicalCondition> medicalConditions) {
+  public void setMedicalConditions(Set<MedicalConditionEntity> medicalConditions) {
     this.medicalConditions = medicalConditions;
   }
 }

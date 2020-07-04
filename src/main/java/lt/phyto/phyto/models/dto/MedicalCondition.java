@@ -5,17 +5,15 @@ import java.util.Set;
 public class MedicalCondition {
   private Long id;
   private String title;
-  private Set<Herb> herbs;
-  private Set<Characteristic> properties;
+  private Set<Characteristic> characteristics;
 
   public MedicalCondition() {
   }
 
-  public MedicalCondition(Long id, String title, Set<Herb> herbs, Set<Characteristic> properties) {
+  public MedicalCondition(Long id, String title, Set<Characteristic> characteristics) {
     this.id = id;
     this.title = title;
-    this.herbs = herbs;
-    this.properties = properties;
+    this.characteristics = characteristics;
   }
 
   public Long getId() {
@@ -34,20 +32,12 @@ public class MedicalCondition {
     this.title = title;
   }
 
-  public Set<Herb> getHerbs() {
-    return herbs;
+  public Set<Characteristic> getCharacteristics() {
+    return characteristics;
   }
 
-  public void setHerbs(Set<Herb> herbs) {
-    this.herbs = herbs;
-  }
-
-  public Set<Characteristic> getProperties() {
-    return properties;
-  }
-
-  public void setProperties(Set<Characteristic> properties) {
-    this.properties = properties;
+  public void setCharacteristics(Set<Characteristic> characteristics) {
+    this.characteristics = characteristics;
   }
 
   @Override
@@ -55,9 +45,9 @@ public class MedicalCondition {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
 
-    MedicalCondition medicalCondition = (MedicalCondition) o;
+    MedicalCondition that = (MedicalCondition) o;
 
-    return id.equals(medicalCondition.id);
+    return id.equals(that.id);
   }
 
   @Override
@@ -67,11 +57,10 @@ public class MedicalCondition {
 
   @Override
   public String toString() {
-    return "Condition{" +
+    return "MedicalCondition{" +
             "id=" + id +
             ", title='" + title + '\'' +
-            ", herbs=" + herbs +
-            ", properties=" + properties +
+            ", characteristics=" + characteristics +
             '}';
   }
 }

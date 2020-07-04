@@ -35,6 +35,41 @@ public class MedicalConditionEntity {
             name = "characteristic_medical_condition",
             joinColumns = @JoinColumn(name = "characteristic_id"),
             inverseJoinColumns = @JoinColumn(name = "medical_condition_id"))
-  private Set<CharacteristicEntity> properties;
+  private Set<CharacteristicEntity> characteristics;
 
+
+  public MedicalConditionEntity() {
+  }
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
+
+  public String getTitle() {
+    return title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public Set<HerbEntity> getHerbs() {
+    return herbs;
+  }
+
+  public void setHerbs(Set<HerbEntity> herbs) {
+    this.herbs = herbs;
+  }
+
+  public Set<CharacteristicEntity> getCharacteristics() {
+    return characteristics;
+  }
+
+  public void setCharacteristics(Set<CharacteristicEntity> characteristics) {
+    this.characteristics = characteristics;
+  }
 }

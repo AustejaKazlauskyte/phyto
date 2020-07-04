@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Set;
+
 @CrossOrigin
 @RestController
 @RequestMapping(HerbController.BASE_URL)
@@ -21,12 +23,10 @@ public class HerbController {
     this.herbService = herbService;
   }
 
-  /*
-    @GetMapping
-    List<HerbEntity> findAllHerbs() {
-      return herbService.findAllHerbs();
-    }
-  */
+  @GetMapping
+  public Set<Herb> findAllHerbs() {
+    return herbService.getAllHerbs();
+  }
 
   @GetMapping("/{id}")
   public Herb findHerbById(@PathVariable Long id) {
@@ -34,12 +34,3 @@ public class HerbController {
   }
 }
 
-/*
-
-        @PostMapping
-        @ResponseStatus(HttpStatus.CREATED)
-        public HerbEntity saveHerb(@RequestBody HerbEntity herbEntity) {
-          return herbService.saveHerb(herbEntity);
-        }
-      }
-      */

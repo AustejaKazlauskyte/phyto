@@ -45,4 +45,63 @@ public class CharacteristicEntity {
 
   @Column(name = "has_high_blood_pressure", nullable = false)
   private boolean hasHighBloodPressure;
+
+  public CharacteristicEntity() {
+  }
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
+
+  public String getTitle() {
+    return title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public Set<HerbEntity> getHerbs() {
+    return herbs;
+  }
+
+  public void setHerbs(Set<HerbEntity> herbs) {
+    this.herbs = herbs;
+  }
+
+  public Set<MedicalConditionEntity> getConditions() {
+    return conditions;
+  }
+
+  public void setConditions(Set<MedicalConditionEntity> conditions) {
+    this.conditions = conditions;
+  }
+
+  public boolean isChild() {
+    return isChild;
+  }
+
+  public void setChild(boolean child) {
+    isChild = child;
+  }
+
+  public boolean isPregnant() {
+    return isPregnant;
+  }
+
+  public void setPregnant(boolean pregnant) {
+    isPregnant = pregnant;
+  }
+
+  public boolean isHasHighBloodPressure() {
+    return hasHighBloodPressure;
+  }
+
+  public void setHasHighBloodPressure(boolean hasHighBloodPressure) {
+    this.hasHighBloodPressure = hasHighBloodPressure;
+  }
 }
