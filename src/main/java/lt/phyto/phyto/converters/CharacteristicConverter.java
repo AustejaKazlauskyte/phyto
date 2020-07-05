@@ -10,11 +10,9 @@ import java.util.stream.Collectors;
 @Component
 public class CharacteristicConverter {
 
-/*  private final HerbConverter herbConverter;*/
   private final MedicalConditionConverter medicalConditionConverter;
 
-  public CharacteristicConverter(HerbConverter herbConverter, MedicalConditionConverter medicalConditionConverter) {
-    this.herbConverter = herbConverter;
+  public CharacteristicConverter(MedicalConditionConverter medicalConditionConverter) {
     this.medicalConditionConverter = medicalConditionConverter;
   }
 
@@ -45,7 +43,6 @@ public class CharacteristicConverter {
     CharacteristicEntity result = new CharacteristicEntity();
     result.setId(characteristic.getId());
     result.setTitle(characteristic.getTitle());
-    result.setHerbs(herbConverter.convertToEntity(characteristic.getHerbs()));
     result.setConditions(medicalConditionConverter.convertToEntity(characteristic.getMedicalConditions()));
     result.setChild(characteristic.isChild());
     result.setPregnant(characteristic.isPregnant());
@@ -63,7 +60,6 @@ public class CharacteristicConverter {
     Characteristic result = new Characteristic();
     result.setId(characteristicEntity.getId());
     result.setTitle(characteristicEntity.getTitle());
-    result.setHerbs(herbConverter.convert(characteristicEntity.getHerbs()));
     result.setMedicalConditions(medicalConditionConverter.convert(characteristicEntity.getConditions()));
     result.setChild(characteristicEntity.isChild());
     result.setPregnant(characteristicEntity.isPregnant());

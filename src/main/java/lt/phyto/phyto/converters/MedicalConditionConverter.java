@@ -10,11 +10,9 @@ import java.util.stream.Collectors;
 @Component
 public class MedicalConditionConverter {
 
-  private final HerbConverter herbConverter;
   private final CharacteristicConverter characteristicConverter;
 
-    public MedicalConditionConverter(HerbConverter herbConverter, CharacteristicConverter characteristicConverter) {
-        this.herbConverter = herbConverter;
+    public MedicalConditionConverter(CharacteristicConverter characteristicConverter) {
         this.characteristicConverter = characteristicConverter;
     }
 
@@ -44,7 +42,6 @@ public class MedicalConditionConverter {
     MedicalConditionEntity result = new MedicalConditionEntity();
     result.setId(medicalCondition.getId());
     result.setTitle(medicalCondition.getTitle());
-    result.setHerbs(herbConverter.convertToEntity(medicalCondition.getHerbs()));
     result.setCharacteristics(characteristicConverter.convertToEntity(medicalCondition.getCharacteristics()));
 
     return result;
@@ -58,7 +55,6 @@ public class MedicalConditionConverter {
     MedicalCondition result = new MedicalCondition();
     result.setId(medicalConditionEntity.getId());
     result.setTitle(medicalConditionEntity.getTitle());
-    result.setHerbs(herbConverter.convert(medicalConditionEntity.getHerbs()));
     result.setCharacteristics(characteristicConverter.convert(medicalConditionEntity.getCharacteristics()));
 
     return result;

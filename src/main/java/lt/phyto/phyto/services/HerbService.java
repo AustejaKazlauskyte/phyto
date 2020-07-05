@@ -25,6 +25,6 @@ public class HerbService {
 
   public Set<Herb> getAllHerbs() {
     Set<HerbEntity> herbEntities = herbRepository.findAll();
-    return herbConverter.convert(herbEntities);
+    return herbConverter.convertToSet(herbEntities);
   }
 }
