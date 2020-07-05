@@ -1,7 +1,5 @@
 package lt.phyto.phyto.models.dto;
 
-import java.util.Set;
-
 public class MedicalCondition {
   private Long id;
   private String title;

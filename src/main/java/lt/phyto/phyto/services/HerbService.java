@@ -3,6 +3,7 @@ import lt.phyto.phyto.converters.HerbConverter;
 import lt.phyto.phyto.models.dto.Herb;
 import lt.phyto.phyto.models.entities.HerbEntity;
 import lt.phyto.phyto.repositories.HerbRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;

@@ -34,7 +34,6 @@ public class Characteristic {
     this.title = title;
   }
 
-
   public boolean isChild() {
     return isChild;
   }

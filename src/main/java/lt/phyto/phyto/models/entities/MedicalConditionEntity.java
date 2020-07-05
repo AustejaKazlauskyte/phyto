@@ -57,5 +57,4 @@ public class MedicalConditionEntity {
   public void setHerbs(Set<HerbEntity> herbs) {
     this.herbs = herbs;
   }
-
 }
