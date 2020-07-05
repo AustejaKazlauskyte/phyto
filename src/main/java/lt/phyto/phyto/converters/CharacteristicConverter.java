@@ -10,12 +10,6 @@ import java.util.stream.Collectors;
 @Component
 public class CharacteristicConverter {
 
-  private final MedicalConditionConverter medicalConditionConverter;
-
-  public CharacteristicConverter(MedicalConditionConverter medicalConditionConverter) {
-    this.medicalConditionConverter = medicalConditionConverter;
-  }
-
   public Set<Characteristic> convert(Set<CharacteristicEntity> characteristics) {
     if (characteristics == null) {
       return null;
@@ -43,7 +37,6 @@ public class CharacteristicConverter {
     CharacteristicEntity result = new CharacteristicEntity();
     result.setId(characteristic.getId());
     result.setTitle(characteristic.getTitle());
-    result.setConditions(medicalConditionConverter.convertToEntity(characteristic.getMedicalConditions()));
     result.setChild(characteristic.isChild());
     result.setPregnant(characteristic.isPregnant());
     result.setHasHighBloodPressure(characteristic.isHasHighBloodPressure());
@@ -60,7 +53,6 @@ public class CharacteristicConverter {
     Characteristic result = new Characteristic();
     result.setId(characteristicEntity.getId());
     result.setTitle(characteristicEntity.getTitle());
-    result.setMedicalConditions(medicalConditionConverter.convert(characteristicEntity.getConditions()));
     result.setChild(characteristicEntity.isChild());
     result.setPregnant(characteristicEntity.isPregnant());
     result.setHasHighBloodPressure(characteristicEntity.isHasHighBloodPressure());

@@ -17,7 +17,7 @@ public class HerbConverter {
         this.medicalConditionConverter = medicalConditionConverter;
     }
 
-    public Set<Herb> convertToSet(Set<HerbEntity> herbs) {
+    public Set<Herb> convert(Set<HerbEntity> herbs) {
         if (herbs == null) {
             return null;
         }
@@ -25,7 +25,7 @@ public class HerbConverter {
         return herbs.stream().map(this::convert).collect(Collectors.toSet());
     }
 
-    public Set<HerbEntity> convertToEntitySet(Set<Herb> herbs) {
+    public Set<HerbEntity> convertToEntity(Set<Herb> herbs) {
         if (herbs == null) {
             return null;
         }

@@ -30,13 +30,6 @@ public class CharacteristicEntity {
       inverseJoinColumns = @JoinColumn(name = "characteristic_id"))
   private Set<HerbEntity> herbs = new HashSet<>();
 
-  @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-  @JoinTable(
-      name = "characteristic_medical_condition",
-      joinColumns = @JoinColumn(name = "characteristic_id"),
-      inverseJoinColumns = @JoinColumn(name = "medical_condition_id"))
-  private Set<MedicalConditionEntity> conditions = new HashSet<>();
-
   @Column(name = "is_child", nullable = false)
   private boolean isChild;
 
@@ -71,14 +64,6 @@ public class CharacteristicEntity {
 
   public void setHerbs(Set<HerbEntity> herbs) {
     this.herbs = herbs;
-  }
-
-  public Set<MedicalConditionEntity> getConditions() {
-    return conditions;
-  }
-
-  public void setConditions(Set<MedicalConditionEntity> conditions) {
-    this.conditions = conditions;
   }
 
   public boolean isChild() {

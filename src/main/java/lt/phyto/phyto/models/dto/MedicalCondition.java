@@ -5,15 +5,13 @@ import java.util.Set;
 public class MedicalCondition {
   private Long id;
   private String title;
-  private Set<Characteristic> characteristics;
 
   public MedicalCondition() {
   }
 
-  public MedicalCondition(Long id, String title, Set<Characteristic> characteristics) {
+  public MedicalCondition(Long id, String title) {
     this.id = id;
     this.title = title;
-    this.characteristics = characteristics;
   }
 
   public Long getId() {
@@ -32,13 +30,6 @@ public class MedicalCondition {
     this.title = title;
   }
 
-  public Set<Characteristic> getCharacteristics() {
-    return characteristics;
-  }
-
-  public void setCharacteristics(Set<Characteristic> characteristics) {
-    this.characteristics = characteristics;
-  }
 
   @Override
   public boolean equals(Object o) {
@@ -60,7 +51,6 @@ public class MedicalCondition {
     return "MedicalCondition{" +
             "id=" + id +
             ", title='" + title + '\'' +
-            ", characteristics=" + characteristics +
             '}';
   }
 }

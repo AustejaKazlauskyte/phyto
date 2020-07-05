@@ -10,29 +10,21 @@ import java.util.stream.Collectors;
 @Component
 public class MedicalConditionConverter {
 
-  private final CharacteristicConverter characteristicConverter;
-
-    public MedicalConditionConverter(CharacteristicConverter characteristicConverter) {
-        this.characteristicConverter = characteristicConverter;
+  public Set<MedicalCondition> convert(Set<MedicalConditionEntity> conditions) {
+    if (conditions == null) {
+      return null;
     }
 
-    public Set<MedicalCondition> convert(Set<MedicalConditionEntity> conditions) {
-        if (conditions == null) {
-            return null;
-        }
+    return conditions.stream().map(this::convert).collect(Collectors.toSet());
+  }
 
-        return conditions.stream().map(this::convert).collect(Collectors.toSet());
-
+  public Set<MedicalConditionEntity> convertToEntity(Set<MedicalCondition> conditions) {
+    if (conditions == null) {
+      return null;
     }
 
-    public Set<MedicalConditionEntity> convertToEntity(Set<MedicalCondition> conditions) {
-        if (conditions == null) {
-            return null;
-        }
-
-        return conditions.stream().map(this::convertToEntity).collect(Collectors.toSet());
-
-    }
+    return conditions.stream().map(this::convertToEntity).collect(Collectors.toSet());
+  }
 
   public MedicalConditionEntity convertToEntity(MedicalCondition medicalCondition) {
     if (medicalCondition == null) {
@@ -42,7 +34,6 @@ public class MedicalConditionConverter {
     MedicalConditionEntity result = new MedicalConditionEntity();
     result.setId(medicalCondition.getId());
     result.setTitle(medicalCondition.getTitle());
-    result.setCharacteristics(characteristicConverter.convertToEntity(medicalCondition.getCharacteristics()));
 
     return result;
   }
@@ -55,7 +46,6 @@ public class MedicalConditionConverter {
     MedicalCondition result = new MedicalCondition();
     result.setId(medicalConditionEntity.getId());
     result.setTitle(medicalConditionEntity.getTitle());
-    result.setCharacteristics(characteristicConverter.convert(medicalConditionEntity.getCharacteristics()));
 
     return result;
   }

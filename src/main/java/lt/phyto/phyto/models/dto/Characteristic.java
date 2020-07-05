@@ -1,11 +1,8 @@
 package lt.phyto.phyto.models.dto;
 
-import java.util.Set;
-
 public class Characteristic {
   private Long id;
   private String title;
-  private Set<MedicalCondition> medicalConditions;
   private boolean isChild;
   private boolean isPregnant;
   private boolean hasHighBloodPressure;
@@ -13,10 +10,9 @@ public class Characteristic {
   public Characteristic() {
   }
 
-  public Characteristic(Long id, String title, Set<MedicalCondition> medicalConditions, boolean isChild, boolean isPregnant, boolean hasHighBloodPressure) {
+  public Characteristic(Long id, String title, boolean isChild, boolean isPregnant, boolean hasHighBloodPressure) {
     this.id = id;
     this.title = title;
-    this.medicalConditions = medicalConditions;
     this.isChild = isChild;
     this.isPregnant = isPregnant;
     this.hasHighBloodPressure = hasHighBloodPressure;
@@ -38,13 +34,6 @@ public class Characteristic {
     this.title = title;
   }
 
-  public Set<MedicalCondition> getMedicalConditions() {
-    return medicalConditions;
-  }
-
-  public void setMedicalConditions(Set<MedicalCondition> medicalConditions) {
-    this.medicalConditions = medicalConditions;
-  }
 
   public boolean isChild() {
     return isChild;
@@ -90,7 +79,6 @@ public class Characteristic {
     return "Characteristic{" +
             "id=" + id +
             ", title='" + title + '\'' +
-            ", medicalConditions=" + medicalConditions +
             ", isChild=" + isChild +
             ", isPregnant=" + isPregnant +
             ", hasHighBloodPressure=" + hasHighBloodPressure +

@@ -11,8 +11,7 @@ CREATE TABLE medical_condition (
     id bigint unsigned auto_increment primary key,
     title varchar(250) not null,
     herb_id bigint unsigned not null,
-    foreign key (herb_id) references herb (id),
-    characteristic_id bigint unsigned not null
+    foreign key (herb_id) references herb (id)
 );
 
 CREATE TABLE characteristic (
@@ -21,8 +20,6 @@ CREATE TABLE characteristic (
     title varchar(250) not null,
     herb_id bigint unsigned not null,
     foreign key (herb_id) references herb (id),
-    medical_condition_id bigint unsigned not null,
-    foreign key (medical_condition_id) references medical_condition (id),
     is_child tinyint(1) not null,
     is_pregnant tinyint(1) not null,
     has_high_blood_pressure tinyint(1) not null
@@ -46,17 +43,7 @@ CREATE TABLE herb_medical_condition (
     unique (herb_id, medical_condition_id)
 );
 
-CREATE TABLE characteristic_medical_condition (
-
-    characteristic_id bigint unsigned not null,
-    foreign key (characteristic_id) references characteristic (id),
-    medical_condition_id bigint unsigned not null,
-    foreign key (medical_condition_id) references medical_condition (id),
-    unique (characteristic_id, medical_condition_id)
-);
 
 ALTER TABLE herb ADD FOREIGN KEY (characteristic_id) REFERENCES characteristic(id);
 
 ALTER TABLE herb ADD FOREIGN KEY (medical_condition_id) REFERENCES medical_condition(id);
-
-ALTER TABLE medical_condition add foreign key (characteristic_id) references characteristic(id);
