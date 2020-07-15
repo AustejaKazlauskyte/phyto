@@ -1,3 +1,11 @@
+create table user
+(
+    id int unsigned auto_increment primary key,
+    email varchar(250) unique,
+    password varchar(60),
+    name varchar(50)
+);
+
 CREATE TABLE herb
 (
     id bigint unsigned auto_increment primary key,
