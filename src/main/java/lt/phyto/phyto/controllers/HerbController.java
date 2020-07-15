@@ -1,37 +1,37 @@
 package lt.phyto.phyto.controllers;
 
-import lt.phyto.phyto.models.entities.HerbEntity;
+import lt.phyto.phyto.models.dto.Herb;
 import lt.phyto.phyto.services.HerbService;
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import java.util.Set;
 
+@CrossOrigin
 @RestController
 @RequestMapping(HerbController.BASE_URL)
 public class HerbController {
 
-    public static final String BASE_URL = "/api/herbs";
+  public static final String BASE_URL = "/api/herbs";
 
-    private final HerbService herbService;
+  private final HerbService herbService;
 
-    public HerbController(HerbService herbService) {
-        this.herbService = herbService;
-    }
+  public HerbController(HerbService herbService) {
+    this.herbService = herbService;
+  }
 
-    @GetMapping
-    List<HerbEntity> findAllHerbs() {
-        return herbService.findAllHerbs();
-    }
+  @GetMapping
+  public Set<Herb> findAllHerbs() {
+    return herbService.getAllHerbs();
+  }
 
-    @GetMapping("/{id}")
-    public HerbEntity findHerbById(@PathVariable Long id) {
-        return herbService.findHerbById(id);
-    }
+  @GetMapping("/{id}")
+  public Herb findHerbById(@PathVariable Long id) {
+    return herbService.getHerb(id);
+  }
 
-    @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public HerbEntity saveHerb(@RequestBody HerbEntity herbEntity) {
-        return herbService.saveHerb(herbEntity);
-    }
 }
+
