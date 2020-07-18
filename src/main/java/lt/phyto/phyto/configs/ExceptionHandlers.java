@@ -40,6 +40,7 @@ public class ExceptionHandlers {
         items.put(objectError.getObjectName(), objectError.getDefaultMessage());
       }
     }
+    ex.printStackTrace();
 
     return new ServerError(header, items);
   }
@@ -50,6 +51,7 @@ public class ExceptionHandlers {
       HttpServletResponse response, IllegalArgumentException ex) {
     response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
     String header = ex.getMessage();
+    ex.printStackTrace();
 
     return new ServerError(header, ex.getMessage());
   }
