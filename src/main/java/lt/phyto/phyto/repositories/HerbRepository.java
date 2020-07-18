@@ -10,4 +10,8 @@ public interface HerbRepository extends Repository<HerbEntity, Long> {
   HerbEntity findOneById(long id);
 
   Set<HerbEntity> findAll();
+
+  HerbEntity save(HerbEntity herb);
+
+  void deleteOneById(Long id);
 }

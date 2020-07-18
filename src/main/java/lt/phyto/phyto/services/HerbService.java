@@ -5,6 +5,7 @@ import lt.phyto.phyto.models.dto.Herb;
 import lt.phyto.phyto.models.entities.HerbEntity;
 import lt.phyto.phyto.repositories.HerbRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Set;
 
@@ -28,4 +29,16 @@ public class HerbService {
     Set<HerbEntity> herbEntities = herbRepository.findAll();
     return herbConverter.convert(herbEntities);
   }
+
+  public Herb save(Herb herb) {
+    HerbEntity herbEntity = herbConverter.convertToEntity(herb);
+    HerbEntity result = herbRepository.save(herbEntity);
+    return herbConverter.convert(result);
+  }
+
+  @Transactional
+  public void delete(Long id) {
+    herbRepository.deleteOneById(id);
+  }
+
 }

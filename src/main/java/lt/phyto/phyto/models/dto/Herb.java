@@ -1,11 +1,17 @@
 package lt.phyto.phyto.models.dto;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.util.Set;
 
 public class Herb {
 
   private Long id;
+
+  @NotEmpty
+  @Size(min = 2, max = 250)
   private String name;
+
   private Set<Characteristic> characteristics;
   private Set<MedicalCondition> medicalConditions;
 

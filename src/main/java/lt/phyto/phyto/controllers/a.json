@@ -1,0 +1,17 @@
+{
+  "name": "Žilvitis",
+  "characteristics": ["klarikatyvinė", "false", "false", "pregnant"],
+  "medicalConditions": ["nuo nemigos ir panašiai"]
+}
+{
+  "name": "Žilvitis",
+  "characteristics": [{
+    "title": "klarikatyvinė",
+    "isChild": false,
+    "isPregnant": false,
+    "hasHighBloodPressure": false
+  }],
+  "medicalConditions": [{
+    "title": "nuo nemigos ir panašiai"
+  }]
+}

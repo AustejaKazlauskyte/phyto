@@ -59,21 +59,6 @@ public class Characteristic {
   }
 
   @Override
-  public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-
-    Characteristic that = (Characteristic) o;
-
-    return id.equals(that.id);
-  }
-
-  @Override
-  public int hashCode() {
-    return id.hashCode();
-  }
-
-  @Override
   public String toString() {
     return "Characteristic{"
         + "id="
