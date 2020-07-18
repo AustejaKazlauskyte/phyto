@@ -10,7 +10,6 @@ import lt.phyto.phyto.repositories.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -20,45 +19,43 @@ import java.util.Map;
 @Service
 public class SecurityService implements UserDetailsService {
 
-    private final UserConverter userConverter;
-    private final UserRepository userRepository;
+  private final UserConverter userConverter;
+  private final UserRepository userRepository;
 
-    public SecurityService(UserConverter userConverter, UserRepository userRepository) {
-        this.userConverter = userConverter;
-        this.userRepository = userRepository;
+  public SecurityService(UserConverter userConverter, UserRepository userRepository) {
+    this.userConverter = userConverter;
+    this.userRepository = userRepository;
+  }
+
+  @Override
+  public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    UserEntity user = userRepository.findOneByEmail(username);
+
+    if (user == null) {
+      throw new UsernameNotFoundException(String.format("User \"%s\" not found", username));
     }
 
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        UserEntity user = userRepository.findOneByEmail(username);
+    return user;
+  }
 
-        if (user == null) {
-            throw new UsernameNotFoundException(String.format("User \"%s\" not found", username));
-        }
+  public User signUp(User user) {
+    UserEntity userEntity = userConverter.convert(user);
 
-        return user;
-    }
+    UserEntity result = userRepository.save(userEntity);
 
-    public User signUp(User user) {
-        UserEntity userEntity = userConverter.convert(user);
+    return userConverter.convert(result);
+  }
 
-        UserEntity result = userRepository.save(userEntity);
+  public String generateToken(String username) {
+    Map<String, Object> claims = new HashMap<>();
+    claims.put("subject", username);
 
-        return userConverter.convert(result);
-    }
-
-    public String generateToken(String username) {
-        Map<String, Object> claims = new HashMap<>();
-        claims.put("subject", username);
-
-        return Jwts.builder()
-                .setClaims(claims)
-                .setSubject(username)
-                .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + JwtAuthFilter.VALIDITY))
-                .signWith(SignatureAlgorithm.HS512, JwtAuthFilter.SECRET)
-                .compact();
-    }
+    return Jwts.builder()
+        .setClaims(claims)
+        .setSubject(username)
+        .setIssuedAt(new Date(System.currentTimeMillis()))
+        .setExpiration(new Date(System.currentTimeMillis() + JwtAuthFilter.VALIDITY))
+        .signWith(SignatureAlgorithm.HS512, JwtAuthFilter.SECRET)
+        .compact();
+  }
 }
-
-

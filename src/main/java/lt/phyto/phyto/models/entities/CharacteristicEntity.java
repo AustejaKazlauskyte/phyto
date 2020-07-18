@@ -3,9 +3,6 @@ package lt.phyto.phyto.models.entities;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
@@ -15,10 +12,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "characteristic")
-public class CharacteristicEntity {
-  @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  private Long id;
+public class CharacteristicEntity extends AbstractEntity {
 
   @Column(name = "title", length = 250, nullable = false)
   private String title;
@@ -40,14 +34,6 @@ public class CharacteristicEntity {
   private boolean hasHighBloodPressure;
 
   public CharacteristicEntity() {
-  }
-
-  public Long getId() {
-    return id;
-  }
-
-  public void setId(Long id) {
-    this.id = id;
   }
 
   public String getTitle() {

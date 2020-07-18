@@ -32,6 +32,4 @@ public class HerbController {
   public Herb findHerbById(@PathVariable Long id) {
     return herbService.getHerb(id);
   }
-
 }
-

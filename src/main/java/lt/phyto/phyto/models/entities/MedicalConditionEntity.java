@@ -3,9 +3,6 @@ package lt.phyto.phyto.models.entities;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
@@ -14,11 +11,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "medical_condition")
-public class MedicalConditionEntity {
-
-  @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  private Long id;
+public class MedicalConditionEntity extends AbstractEntity {
 
   @Column(name = "title", length = 250, nullable = false)
   private String title;
@@ -30,17 +23,7 @@ public class MedicalConditionEntity {
       inverseJoinColumns = @JoinColumn(name = "medical_condition_id"))
   private Set<HerbEntity> herbs;
 
-
-  public MedicalConditionEntity() {
-  }
-
-  public Long getId() {
-    return id;
-  }
-
-  public void setId(Long id) {
-    this.id = id;
-  }
+  public MedicalConditionEntity() {}
 
   public String getTitle() {
     return title;

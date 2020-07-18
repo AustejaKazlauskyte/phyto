@@ -16,7 +16,6 @@ public class CharacteristicConverter {
     }
 
     return characteristics.stream().map(this::convert).collect(Collectors.toSet());
-
   }
 
   public Set<CharacteristicEntity> convertToEntity(Set<Characteristic> characteristics) {
@@ -25,7 +24,6 @@ public class CharacteristicConverter {
     }
 
     return characteristics.stream().map(this::convertToEntity).collect(Collectors.toSet());
-
   }
 
   public CharacteristicEntity convertToEntity(Characteristic characteristic) {

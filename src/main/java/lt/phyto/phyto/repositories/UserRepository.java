@@ -5,7 +5,7 @@ import org.springframework.data.repository.Repository;
 
 public interface UserRepository extends Repository<UserEntity, Long> {
 
-    UserEntity findOneByEmail(String email);
+  UserEntity findOneByEmail(String email);
 
-    UserEntity save(UserEntity user);
+  UserEntity save(UserEntity user);
 }

@@ -4,8 +4,7 @@ public class MedicalCondition {
   private Long id;
   private String title;
 
-  public MedicalCondition() {
-  }
+  public MedicalCondition() {}
 
   public MedicalCondition(Long id, String title) {
     this.id = id;
@@ -28,7 +27,6 @@ public class MedicalCondition {
     this.title = title;
   }
 
-
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;
@@ -46,9 +44,6 @@ public class MedicalCondition {
 
   @Override
   public String toString() {
-    return "MedicalCondition{" +
-            "id=" + id +
-            ", title='" + title + '\'' +
-            '}';
+    return "MedicalCondition{" + "id=" + id + ", title='" + title + '\'' + '}';
   }
 }

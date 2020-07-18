@@ -7,10 +7,10 @@ public class Characteristic {
   private boolean isPregnant;
   private boolean hasHighBloodPressure;
 
-  public Characteristic() {
-  }
+  public Characteristic() {}
 
-  public Characteristic(Long id, String title, boolean isChild, boolean isPregnant, boolean hasHighBloodPressure) {
+  public Characteristic(
+      Long id, String title, boolean isChild, boolean isPregnant, boolean hasHighBloodPressure) {
     this.id = id;
     this.title = title;
     this.isChild = isChild;
@@ -75,12 +75,18 @@ public class Characteristic {
 
   @Override
   public String toString() {
-    return "Characteristic{" +
-            "id=" + id +
-            ", title='" + title + '\'' +
-            ", isChild=" + isChild +
-            ", isPregnant=" + isPregnant +
-            ", hasHighBloodPressure=" + hasHighBloodPressure +
-            '}';
+    return "Characteristic{"
+        + "id="
+        + id
+        + ", title='"
+        + title
+        + '\''
+        + ", isChild="
+        + isChild
+        + ", isPregnant="
+        + isPregnant
+        + ", hasHighBloodPressure="
+        + hasHighBloodPressure
+        + '}';
   }
 }
