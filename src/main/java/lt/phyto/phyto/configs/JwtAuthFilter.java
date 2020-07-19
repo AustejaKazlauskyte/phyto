@@ -23,7 +23,7 @@ public class JwtAuthFilter extends BasicAuthenticationFilter {
   private static final String HEADER = "Authorization";
   private static final String PREFIX = "Bearer ";
   public static final String SECRET = "f0-fU)Ire(rJ#a34_rJP-O67es";
-  public static final int VALIDITY = 60 * 60 * 1000;
+  public static final int VALIDITY = 60 * 60 * 60 * 1000;
 
   public JwtAuthFilter(AuthenticationManager authenticationManager) {
     super(authenticationManager);
